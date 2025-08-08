@@ -10,7 +10,7 @@
     .logo-header img {height:160px;object-fit:contain;}
     h1 {text-align:center;color:#005baa;margin-bottom:0;}
     h2 {text-align:center;font-size:18px;font-weight:normal;color:#005baa;margin-top:5px;}
-    .note {max-width:640px;margin:18px auto 0;background:rgba(255,255,255,0.95);border-left:6px solid #e67e22;border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,0.08);padding:14px 16px;}
+    .note {max-width:640px;margin:18px auto 0;background:rgba(255,255,255,0.95);border-left:6px solid #e67e22;border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,0.08);padding:14px 16px;line-height:1.6;}
     .note strong {color:#c0392b;}
     .payment-box {background:rgba(255,255,255,0.9);padding:20px;margin:20px auto;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.1);max-width:500px;text-align:center;}
     .logo {height:40px;vertical-align:middle;margin-bottom:10px;}
@@ -31,6 +31,7 @@
 
   <div class="note">
     <p><strong>Announcement:</strong> JazzCash and Easypaisa payments are <strong>no longer accepted</strong> due to account limitations. Please pay <strong>only via Soneri Bank</strong>. After paying online, kindly share the payment <strong>Screenshot</strong> on WhatsApp <strong>0331‑4477397</strong>.</p>
+    <p dir="rtl" style="margin-top:8px;"> <strong>اعلان:</strong> JazzCash اور Easypaisa کے ذریعے ادائیگی <strong>قبول نہیں کی جاتی</strong>۔ براہِ کرم صرف <strong>سونیری بینک</strong> میں ادائیگی کریں۔ ادائیگی کے بعد اس کی <strong>اسکرین شاٹ</strong> WhatsApp نمبر <strong>0331‑4477397</strong> پر شیئر کریں۔</p>
   </div>
 
   <div class="payment-box">
@@ -48,17 +49,35 @@
 
   <div class="payment-box">
     <strong>Send Screenshot on WhatsApp</strong>
-    <p><strong>WhatsApp Number:</strong> <span id="wa-number">03314477397</span></p>
-    <div class="row">
-      <button class="copy-btn" onclick="copyText('wa-number')">Copy WhatsApp Number</button>
-      <a class="wa-btn" target="_blank" rel="noopener" href="https://wa.me/923314477397?text=Salam%2C%20I%20have%20paid%20my%20Indus%20Broadband%20bill%20via%20Soneri%20Bank.%20Screenshot%20attached.%20Account%3A%20029020011769587">Open WhatsApp to Send Screenshot</a>
+    <p><strong>WhatsApp Number:</strong> 03314477397</p>
+    <div style="max-width:500px;margin:0 auto;text-align:left">
+      <label for="cust-name"><strong>Full Name / پورا نام</strong></label>
+      <input id="cust-name" type="text" placeholder="e.g., Ahmed Khan" style="width:100%;padding:10px 12px;border-radius:10px;border:1px solid #cbd5e1;margin-top:6px" />
     </div>
+
+    <div class="row">
+      <button class="wa-btn" onclick="openWhatsApp()">Open WhatsApp to Send Screenshot</button>
+    </div>
+    <div class="mini">Tip: Type your name above, then tap WhatsApp — your name will be added automatically.</div>
   </div>
 
   <script>
     function copyText(elementId){
       const text=document.getElementById(elementId).innerText.trim();
       navigator.clipboard.writeText(text).then(()=>{alert('Copied: '+text);});
+    }
+    function openWhatsApp(){
+      const num = '923314477397';
+      const name = (document.getElementById('cust-name')?.value || '').trim();
+      if(!name){
+        const proceed = confirm('You did not enter your name. Continue without name?');
+        if(!proceed) return;
+      }
+      const en = `Salam, I have paid my Indus Broadband bill via Soneri Bank.\nName: ${name || '(not provided)'}\nScreenshot attached.\nAccount: 029020011769587`;
+      const ur = `السلام علیکم، میں نے اپنا انٹرنیٹ بل سونیری بینک کے ذریعے ادا کر دیا ہے۔\nنام: ${name || '---'}\nاسکرین شاٹ منسلک ہے۔`;
+      const text = encodeURIComponent(en + '\n\n' + ur);
+      const url = `https://wa.me/${num}?text=${text}`;
+      window.open(url,'_blank');
     }
   </script>
 </body>
