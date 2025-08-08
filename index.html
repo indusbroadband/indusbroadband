@@ -5,65 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Indus Broadband Pvt Ltd Payment Methods</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom right, #f9f9ff, #dbe9ff);
-      padding: 20px;
-      color: #1a1a1a;
-    }
-    .logo-header {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 10px;
-    }
-    .logo-header img {
-      height: 140px;
-      object-fit: contain;
-    }
-    h1 {
-      text-align: center;
-      color: #005baa;
-      margin-bottom: 0;
-    }
-    h2 {
-      text-align: center;
-      font-size: 18px;
-      font-weight: normal;
-      color: #005baa;
-      margin-top: 5px;
-    }
-    .payment-box {
-      background: rgba(255, 255, 255, 0.9);
-      padding: 20px;
-      margin: 25px auto;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      max-width: 500px;
-      text-align: center;
-    }
-    .logo {
-      height: 40px;
-      vertical-align: middle;
-      margin-bottom: 10px;
-    }
-    .copy-btn {
-      display: block;
-      background: #007bff;
-      color: white;
-      border: none;
-      padding: 10px 18px;
-      border-radius: 25px;
-      cursor: pointer;
-      margin: 15px auto 0;
-      font-size: 14px;
-      transition: background 0.3s ease;
-    }
-    .copy-btn:hover {
-      background-color: #0056b3;
-    }
-    .account-section {
-      margin-top: 10px;
-    }
+    body {font-family: Arial, sans-serif;background: linear-gradient(to bottom right, #f9f9ff, #dbe9ff);padding: 20px;color: #1a1a1a;}
+    .logo-header {display:flex;justify-content:center;margin-bottom:10px;}
+    .logo-header img {height:160px;object-fit:contain;}
+    h1 {text-align:center;color:#005baa;margin-bottom:0;}
+    h2 {text-align:center;font-size:18px;font-weight:normal;color:#005baa;margin-top:5px;}
+    .note {max-width:640px;margin:18px auto 0;background:rgba(255,255,255,0.95);border-left:6px solid #e67e22;border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,0.08);padding:14px 16px;}
+    .note strong {color:#c0392b;}
+    .payment-box {background:rgba(255,255,255,0.9);padding:20px;margin:20px auto;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.1);max-width:500px;text-align:center;}
+    .logo {height:40px;vertical-align:middle;margin-bottom:10px;}
+    .copy-btn {display:block;background:#007bff;color:#fff;border:none;padding:10px 18px;border-radius:25px;cursor:pointer;margin:12px auto 0;font-size:14px;transition:background .3s;}
+    .copy-btn:hover {background:#0056b3;}
+    .wa-btn {display:block;background:#25D366;color:#fff;text-decoration:none;text-align:center;padding:12px 18px;border-radius:28px;font-weight:bold;margin:12px auto 0;max-width:320px;}
+    .account-section {margin-top:10px;}
+    .row {display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:10px;}
+    .mini {font-size:12px;color:#666;margin-top:6px;}
   </style>
 </head>
 <body>
@@ -73,42 +29,36 @@
   <h1>Indus Broadband Pvt Ltd</h1>
   <h2>Payment Methods</h2>
 
+  <div class="note">
+    <p><strong>Announcement:</strong> JazzCash and Easypaisa payments are <strong>no longer accepted</strong> due to account limitations. Please pay <strong>only via Soneri Bank</strong>. After paying online, kindly share the payment <strong>Screenshot</strong> on WhatsApp <strong>0331‑4477397</strong>.</p>
+  </div>
+
   <div class="payment-box">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8gN2V4ca4vUeXnk3KLDj9w8Jr7XYeOpn4og&s" alt="Soneri Bank" class="logo">
     <strong>Soneri Bank</strong>
     <div class="account-section">
       <p><strong>Account Title:</strong> Indus Broadband Pvt Ltd</p>
       <p><strong>Account Number:</strong> <span id="bank-account">029020011769587</span></p>
-      <button class="copy-btn" onclick="copyText('bank-account')">Copy Account Number</button>
+      <div class="row">
+        <button class="copy-btn" onclick="copyText('bank-account')">Copy Soneri Account Number</button>
+      </div>
+      <div class="mini">Use your bank app to transfer, then send screenshot via WhatsApp below.</div>
     </div>
   </div>
 
   <div class="payment-box">
-    <img src="https://crystalpng.com/wp-content/uploads/2024/12/new-Jazzcash-logo.png" alt="JazzCash" class="logo">
-    <strong>JazzCash</strong>
-    <div class="account-section">
-      <p><strong>Account Title:</strong> Numan Ali</p>
-      <p><strong>Account Number:</strong> <span id="jazz-account">03314477397</span></p>
-      <button class="copy-btn" onclick="copyText('jazz-account')">Copy Account Number</button>
-    </div>
-  </div>
-
-  <div class="payment-box">
-    <img src="https://crystalpng.com/wp-content/uploads/2024/10/Easypaisa-logo.png" alt="Easypaisa" class="logo">
-    <strong>Easypaisa</strong>
-    <div class="account-section">
-      <p><strong>Account Title:</strong> Numan Ali</p>
-      <p><strong>Account Number:</strong> <span id="easy-account">03314477397</span></p>
-      <button class="copy-btn" onclick="copyText('easy-account')">Copy Account Number</button>
+    <strong>Send Screenshot on WhatsApp</strong>
+    <p><strong>WhatsApp Number:</strong> <span id="wa-number">03314477397</span></p>
+    <div class="row">
+      <button class="copy-btn" onclick="copyText('wa-number')">Copy WhatsApp Number</button>
+      <a class="wa-btn" target="_blank" rel="noopener" href="https://wa.me/923314477397?text=Salam%2C%20I%20have%20paid%20my%20Indus%20Broadband%20bill%20via%20Soneri%20Bank.%20Screenshot%20attached.%20Account%3A%20029020011769587">Open WhatsApp to Send Screenshot</a>
     </div>
   </div>
 
   <script>
-    function copyText(elementId) {
-      const text = document.getElementById(elementId).innerText;
-      navigator.clipboard.writeText(text).then(() => {
-        alert('Copied: ' + text);
-      });
+    function copyText(elementId){
+      const text=document.getElementById(elementId).innerText.trim();
+      navigator.clipboard.writeText(text).then(()=>{alert('Copied: '+text);});
     }
   </script>
 </body>
